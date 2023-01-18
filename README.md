@@ -1,2 +1,2 @@
 # GOPH619_Examples
-GOPH619 Examples
+*Examples from lecture and labs*
