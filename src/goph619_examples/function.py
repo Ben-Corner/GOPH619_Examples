@@ -2,7 +2,7 @@
 
 #######################
 #Exponential function
-def expt(x):
+def exp(x):
     """
     """
     k = 0
@@ -17,6 +17,8 @@ def expt(x):
         s += t   #Sum increment        
         err = abs(t/s)  #Update error
     return s
+
+
 
 ##########################################
 ####Convert Decimal to mantissa and exponent
@@ -79,10 +81,9 @@ def me_2_bin(m,e):
     
 ############################################
 if __name__ == '__main__':
-    #import numpy as np
-    print(f'exp(0): {expt(0)}')
-    print(f'exp(1): {expt(1)}')
-    m,e = decimal_2_mne(173)
-    print("Mantissa:",m,"Exponent:",e)
-    sb, se = me_2_bin(m,e)
-    print("Exponent:", se, "Mantissa:", sb)
+    print(f'exp(0): {exp(0)}') #A form of Verification, know e(0) by the series function
+    print(f'exp(1): {exp(1)}') #A form of Validation, need to look to find e(1)
+    # m,e = decimal_2_mne(173)
+    # print("Mantissa:",m,"Exponent:",e)
+    # sb, se = me_2_bin(m,e)
+    # print("Exponent:", se, "Mantissa:", sb)
