@@ -3,7 +3,7 @@
 #######################
 #Exponential function
 def exp(x):
-    """
+    """Exponential Function
     """
     k = 0
     err = 1.
@@ -18,8 +18,24 @@ def exp(x):
         err = abs(t/s)  #Update error
     return s
 
+#################################
+#Cos function
+def cos(x):
+    """Compute the value of cosine
 
+    Parameters
+    ---------
 
+    Returns
+    ------
+    """
+    return 0
+
+########################################
+#Sin function
+
+####
+#For Lab 1
 ##########################################
 ####Convert Decimal to mantissa and exponent
 def decimal_2_mne(num):
@@ -80,9 +96,9 @@ def me_2_bin(m,e):
     return sb,se
     
 ############################################
-if __name__ == '__main__':
-    print(f'exp(0): {exp(0)}') #A form of Verification, know e(0) by the series function
-    print(f'exp(1): {exp(1)}') #A form of Validation, need to look to find e(1)
+# if __name__ == '__main__':
+#     print(f'exp(0): {exp(0)}') #A form of Verification, know e(0) by the series function
+#     print(f'exp(1): {exp(1)}') #A form of Validation, need to look to find e(1)
     # m,e = decimal_2_mne(173)
     # print("Mantissa:",m,"Exponent:",e)
     # sb, se = me_2_bin(m,e)
