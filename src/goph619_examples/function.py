@@ -1,9 +1,11 @@
-# Functions.py
+"""Module for implementing functions with series solution in Python
 
+Contains functions: exp()
+"""
 #######################
 #Exponential function
 def exp(x):
-    """Exponential Function
+    """
     """
     k = 0
     err = 1.
