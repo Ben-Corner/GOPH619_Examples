@@ -1,9 +1,12 @@
-# Functions.py
+"""Module for implementing functions with series solution in Python
 
+Contains functions: exp()
+"""
 #######################
 #Exponential function
 def exp(x):
-    """
+    """The exponential function
+
     """
     k = 0
     err = 1.
@@ -80,9 +83,9 @@ def me_2_bin(m,e):
     return sb,se
     
 ############################################
-if __name__ == '__main__':
-    print(f'exp(0): {exp(0)}') #A form of Verification, know e(0) by the series function
-    print(f'exp(1): {exp(1)}') #A form of Validation, need to look to find e(1)
+# if __name__ == '__main__':
+#     print(f'exp(0): {exp(0)}') #A form of Verification, know e(0) by the series function
+#     print(f'exp(1): {exp(1)}') #A form of Validation, need to look to find e(1)
     # m,e = decimal_2_mne(173)
     # print("Mantissa:",m,"Exponent:",e)
     # sb, se = me_2_bin(m,e)
