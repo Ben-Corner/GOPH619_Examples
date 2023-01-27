@@ -2,79 +2,179 @@
 
 Contains functions: exp()
 """
+import numpy as np
 #######################
 #Exponential function
-def exp(x):
-    """
-    """
-    k = 0
-    err = 1.
-    tol = 1e-16   #About 16 digits of precision
-    s = 1.
-    fact_k = 1
-    while err > tol:
-        k += 1
-        fact_k *= k
-        t = (x ** k) / fact_k #Calculate term 
-        s += t   #Sum increment        
-        err = abs(t/s)  #Update error
-    return s
+# def exp(x):
+    # """Made by Ben
+    # """
+    # k = 0
+    # err = 1.
+    # tol = 1e-16   #About 16 digits of precision
+    # s = 1.
+    # fact_k = 1
+    # while err > tol:
+    #     k += 1
+    #     fact_k *= k
+    #     t = (x ** k) / fact_k #Calculate term 
+    #     s += t   #Sum increment        
+    #     err = abs(t/s)  #Update error
+    # return s
 
-#################################
-#Cos function
-def cos(x):
-    """Compute the value of cosine
+###################
+#Exp functino by Brandon
+def exp(x):
+    """Exponential function
+
     Parameters
-    ---------
+    ----------
+    x : array_like
+        Arguments to exp functions
+    
     Returns
-    ------
+    -------
+    numpy.ndarray
+        Result of exp function
     """
-    k = 1
-    err = 1.
-    tol = 1e-16
-    s = 0.
+    x = np.array(x) #Convert x to numpy array to check array_like
+    #Initalization
+    k = 0
     fact_k = 1
-    t = 0.
-    while err>tol:
-    #for i in range(0,4):
-        if (k%2 ==0):      #Calculate factorial
-            fact_k *= k 
-            #print(fact_k,k)
-            t = (-1) **k * (x **(2*k)) / (fact_k)
-            s += t
-            err = abs(t/s)  #Update error 
-            print("S:", s,"t:", t, "fact of ", k, "is:", fact_k)
-            k+=1
-        else:
-            fact_k *= k 
-            k +=1          
+    x_k = np.ones_like(x)
+    s = np.ones_like(x)
+    err = np.ones_like(x)
+    tol = 1.e-16
+    #Iteration
+    while err.max() > tol:
+        k +=1         # increment iteration counter
+        fact_k *= k     #Update factorial 
+        x_k *= x        # update X^k
+        t = x_k / fact_k
+        s += t
+        err = abs(t/s)
+
     return s
-# if __name__ == '__main__':
-#     print(cos(1))
+#################################
+#Cos function by Ben
+# def cos(x):
+#     """Compute the value of cosine
+#     Parameters
+#     ---------
+#     Returns
+#     ------
+#     """
+#     k = 1
+#     err = 1.
+#     tol = 1e-16
+#     s = 0.
+#     fact_k = 1
+#     t = 0.
+#     while err>tol:
+#     #for i in range(0,4):
+#         if (k%2 ==0):      #Calculate factorial
+#             fact_k *= k 
+#             #print(fact_k,k)
+#             t = (-1) **k * (x **(2*k)) / (fact_k)
+#             s += t
+#             err = abs(t/s)  #Update error 
+#             #print("S:", s,"t:", t, "fact of ", k, "is:", fact_k)
+#             k+=1
+#         else:
+#             fact_k *= k 
+#             k +=1          
+#     return s
+#######################
+#Cos by Brandon
+def cos(x):
+    """Compute the cosine of a value
+
+    Parameters
+    ----------
+    x : array_like
+        The arguments to cos function
+
+    Returns
+    -------
+    numpy.ndarray
+        Result of cos function
+    """
+    x = np.array(x) # Try to convert x to numpy array and check array_like
+    #Initialize
+    k = 0
+    fact_2k = 1
+    sign = 1
+    x_2 = x**2
+    x_2k = np.ones_like(x)
+    s = np.ones_like(x)
+    err = np.ones_like(x)
+    tol = 1.e-16
+    #Iteration
+    while err.max() > tol:
+        k += 1
+        two_k = 2*k
+        fact_2k *= two_k * (two_k - 1)
+        sign *= -1
+        x_2k *= x_2
+        t = sign * x_2k / fact_2k
+        s = s +  t
+        err = abs(t/s)
+    return s
 
 ########################################
-#Sin function
+#Sin function By Ben
+# def sin(x):
+#     """Compute the value of cosine
+#     Parameters
+#     ---------
+#     Returns
+#     ------
+#     """
+#     k = 0
+#     err = 1.
+#     tol = 1e-16
+#     s = 1.
+#     fact_k = 1
+#     t = 0.
+#     #while err>tol:
+#     for i in range(0,10):
+#         k = 2*k+1
+#         #print("k:",k,"i",i)
+        
+#     return s
+####################
+#Sin function by Brandon
 def sin(x):
-    """Compute the value of cosine
+    """Compute value of Sin
+
     Parameters
     ---------
+    x : array_like
+        Arguments to the sin function
+    
     Returns
-    ------
+    -------
+    numpy.ndarray
+        Result of sin function
     """
+    x = np.array(x) # try to convert x to numpy array and check array like
+    #Initialization
     k = 0
-    err = 1.
-    tol = 1e-16
-    s = 1.
-    fact_k = 1
-    t = 0.
-    #while err>tol:
-    for i in range(0,10):
-        k = 2*k+1
-        print("k:",k,"i",i)
-        
+    fact_2kp1 =1
+    sign = 1
+    s = x
+    err = np.ones_like(x)
+    tol = 1.e-16
+    #Iteration block
+    while err.max() > tol:
+        k += 1
+        two_k = 2*k
+        fact_2kp1 *= two_k * (two_k + 1)
+        sign *= -1
+        x_2kp1 = x ** (two_k + 1)
+        t = sign * x_2kp1 /fact_2kp1
+        s = s+ t
+        err = abs(t/s[k])
     return s
-if __name__ == '__main__':
-    print(sin(1))      
 ####
 #For Lab 1
 ##########################################
