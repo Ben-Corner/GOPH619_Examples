@@ -24,18 +24,57 @@ def exp(x):
 #Cos function
 def cos(x):
     """Compute the value of cosine
-
     Parameters
     ---------
-
     Returns
     ------
     """
-    return 0
+    k = 1
+    err = 1.
+    tol = 1e-16
+    s = 0.
+    fact_k = 1
+    t = 0.
+    while err>tol:
+    #for i in range(0,4):
+        if (k%2 ==0):      #Calculate factorial
+            fact_k *= k 
+            #print(fact_k,k)
+            t = (-1) **k * (x **(2*k)) / (fact_k)
+            s += t
+            err = abs(t/s)  #Update error 
+            print("S:", s,"t:", t, "fact of ", k, "is:", fact_k)
+            k+=1
+        else:
+            fact_k *= k 
+            k +=1          
+    return s
+# if __name__ == '__main__':
+#     print(cos(1))
 
 ########################################
 #Sin function
-
+def sin(x):
+    """Compute the value of cosine
+    Parameters
+    ---------
+    Returns
+    ------
+    """
+    k = 0
+    err = 1.
+    tol = 1e-16
+    s = 1.
+    fact_k = 1
+    t = 0.
+    #while err>tol:
+    for i in range(0,10):
+        k = 2*k+1
+        print("k:",k,"i",i)
+        
+    return s
+if __name__ == '__main__':
+    print(sin(1))      
 ####
 #For Lab 1
 ##########################################
