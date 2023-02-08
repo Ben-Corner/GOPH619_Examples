@@ -4,26 +4,8 @@ Contains functions: exp()
 """
 import numpy as np
 #######################
-#Exponential function
-# def exp(x):
-    # """Made by Ben
-    # """
-    # k = 0
-    # err = 1.
-    # tol = 1e-16   #About 16 digits of precision
-    # s = 1.
-    # fact_k = 1
-    # while err > tol:
-    #     k += 1
-    #     fact_k *= k
-    #     t = (x ** k) / fact_k #Calculate term 
-    #     s += t   #Sum increment        
-    #     err = abs(t/s)  #Update error
-    # return s
-
-###################
-#Exp functino by Brandon
-def exp(x):
+#Exp functinon
+def exp(x, dtype = float):
     """Exponential function
 
     Parameters
@@ -50,10 +32,10 @@ def exp(x):
         fact_k *= k     #Update factorial 
         x_k *= x        # update X^k
         t = x_k / fact_k
-        s += t
+        s = s+ t
         err = abs(t/s)
 
-    return s
+    return np.array(s, dtype=float)
 #################################
 #Cos function by Ben
 # def cos(x):
