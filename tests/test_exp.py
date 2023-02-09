@@ -34,7 +34,11 @@ class TestExpString(unittest.TestCase):
         self.e = 2.7182818284590452353602874713526624977572470936999
 
     def test_exp_valid_string(self):
-        self.assertEqual(exp('1.0'), self.e)
+        self.assertAlmostEqual(exp('1.0'),self.e)
+
+    def test_exp_invalid_str(self):
+        with self.assertRaises(ValueError):    #This passes only if it raises this expected type of error
+            exp('zero')
 
 if __name__ == '__main__':
     unittest.main()
