@@ -5,7 +5,7 @@ Contains functions: exp()
 import numpy as np
 #######################
 #Exp functinon
-def exp(x, dtype = float):
+def exp(x):
     """Exponential function
 
     Parameters
@@ -35,7 +35,9 @@ def exp(x, dtype = float):
         s = s+ t
         err = abs(t/s)
 
-    return np.array(s, dtype=float)
+    return float(s) if s.shape == () else np.array(s, dtype=float)
+
+
 #################################
 #Cos function by Ben
 # def cos(x):
